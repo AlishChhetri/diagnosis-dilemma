@@ -1,2 +1,3 @@
 .env
 docvenv
+app/__pycache__
