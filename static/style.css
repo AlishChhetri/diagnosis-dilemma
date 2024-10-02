@@ -1,7 +1,7 @@
 /* General body styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f4f8;
+    background-color: #f7fafc;
     margin: 0;
     padding: 20px;
     color: #333;
@@ -12,116 +12,121 @@ body {
     min-height: 100vh;
 }
 
-/* Centered header styling */
+/* Header styling */
 h1.center {
     text-align: center;
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 40px;
 }
 
 /* Improved Disease Selection Page */
 .disease-selection {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
     width: 100%;
     text-align: center;
 }
 
 .disease-select {
     padding: 12px;
-    font-size: 1.2em;
+    font-size: 1.1rem;
     border-radius: 8px;
-    border: 2px solid #ccc;
+    border: 1px solid #cbd5e0;
     width: 100%;
     margin-bottom: 20px;
+    background-color: #f7fafc;
+    transition: border-color 0.2s;
+}
+
+.disease-select:focus {
+    border-color: #3182ce;
 }
 
 .form .btn {
     padding: 12px 20px;
-    font-size: 1.1em;
-    background-color: #007bff;
+    font-size: 1.2rem;
+    background-color: #3182ce;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form .btn:hover {
-    background-color: #0056b3;
+    background-color: #2b6cb0;
 }
 
-/* Improved Chatbox Layout */
+/* Chatbox Layout */
 .chat-box {
     background-color: #fff;
     padding: 20px;
-    border-radius: 15px;
-    border: 2px solid #ccc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
     max-width: 900px;
     width: 100%;
     height: 450px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
 }
 
-/* Chat message container */
+/* Chat messages layout */
 .chat-message {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-/* Message bubbles and sprites for patient and doctor */
-.chat-message.patient {
-    justify-content: flex-start;
+    margin-bottom: 10px;
 }
 
 .chat-message.doctor {
     justify-content: flex-end;
 }
 
+.chat-message.patient {
+    justify-content: flex-start;
+}
+
 .sprite {
     width: 60px;
     height: 60px;
-    margin-left: 10px;
+    margin-left: 15px;
     border-radius: 50%;
-    border: 2px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #cbd5e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .doctor-sprite {
     margin-left: 0;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-/* Message bubbles for text */
+/* Message bubbles */
 .message {
     max-width: 65%;
     padding: 15px;
-    border-radius: 15px;
-    font-size: 1.1em;
+    border-radius: 12px;
+    font-size: 1.1rem;
 }
 
 .doctor-message {
-    background-color: #e3f6f5;
-    border: 1px solid #a5d5d4;
-    color: #2c6d6a;
+    background-color: #edf2f7;
+    border: 1px solid #cbd5e0;
+    color: #2d3748;
     text-align: right;
-    align-self: flex-end;
 }
 
 .patient-message {
-    background-color: #fdf2f2;
-    border: 1px solid #fbc2c4;
-    color: #c44544;
+    background-color: #fef2f2;
+    border: 1px solid #feb2b2;
+    color: #9b2c2c;
     text-align: left;
 }
 
@@ -137,18 +142,22 @@ h1.center {
 
 .form input {
     padding: 12px;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #cbd5e0;
     width: 60%;
-    box-sizing: border-box;
     margin-right: 15px;
 }
 
+.form input:focus {
+    border-color: #3182ce;
+}
+
+/* Buttons */
 .form .btn {
     padding: 12px 25px;
-    font-size: 1.1em;
-    background-color: #007bff;
+    font-size: 1.2rem;
+    background-color: #3182ce;
     color: white;
     border: none;
     border-radius: 8px;
@@ -158,17 +167,16 @@ h1.center {
 }
 
 .form .btn:hover {
-    background-color: #0056b3;
+    background-color: #2b6cb0;
 }
 
-/* Cancel button styling */
 .cancel-btn {
-    background-color: #dc3545;  /* Red for cancel */
+    background-color: #e53e3e;
     margin-top: 15px;
 }
 
 .cancel-btn:hover {
-    background-color: #c82333;
+    background-color: #c53030;
 }
 
 /* Loading spinner */
@@ -187,36 +195,32 @@ h1.center {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-/* General styling */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f4f8;
-    margin: 0;
-    padding: 20px;
-    color: #333;
+/* Modal */
+.modal {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
-/* Chat box styling */
-.chat-box {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    border: 2px solid #ccc;
-    max-width: 900px;
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
     width: 100%;
-    height: 450px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
 }

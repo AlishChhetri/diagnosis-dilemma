@@ -20,7 +20,20 @@ diseases = {
     "Disease 1": "Common cold",
     "Disease 2": "Migraine",
     "Disease 3": "Type 2 Diabetes",
+    "Disease 4": "Snake bite",
+    "Disease 5": "Appendicitis",
+    "Disease 6": "Pneumonia",
+    "Disease 7": "Urinary Tract Infection (UTI)",
+    "Disease 8": "Mononucleosis",
+    "Disease 9": "Asthma",
+    "Disease 10": "Peptic Ulcer",
+    "Disease 11": "Hypertension",
+    "Disease 12": "Anemia",
+    "Disease 13": "Strep Throat",
+    "Disease 14": "Gallstones",
+    "Disease 15": "Irritable Bowel Syndrome (IBS)",
 }
+
 
 # Placeholder for the current game session
 game_state = {
