@@ -1,0 +1,222 @@
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Centered header styling */
+h1.center {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Improved Disease Selection Page */
+.disease-selection {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.disease-select {
+    padding: 12px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form .btn {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Improved Chatbox Layout */
+.chat-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+    max-width: 900px;
+    width: 100%;
+    height: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Chat message container */
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Message bubbles and sprites for patient and doctor */
+.chat-message.patient {
+    justify-content: flex-start;
+}
+
+.chat-message.doctor {
+    justify-content: flex-end;
+}
+
+.sprite {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-sprite {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+/* Message bubbles for text */
+.message {
+    max-width: 65%;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1.1em;
+}
+
+.doctor-message {
+    background-color: #e3f6f5;
+    border: 1px solid #a5d5d4;
+    color: #2c6d6a;
+    text-align: right;
+    align-self: flex-end;
+}
+
+.patient-message {
+    background-color: #fdf2f2;
+    border: 1px solid #fbc2c4;
+    color: #c44544;
+    text-align: left;
+}
+
+/* Forms and input fields */
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.form input {
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 60%;
+    box-sizing: border-box;
+    margin-right: 15px;
+}
+
+.form .btn {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Cancel button styling */
+.cancel-btn {
+    background-color: #dc3545;  /* Red for cancel */
+    margin-top: 15px;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+/* Loading spinner */
+.loading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* General styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat box styling */
+.chat-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+    max-width: 900px;
+    width: 100%;
+    height: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}

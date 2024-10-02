@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock in Your Answer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <h2 class="center">Lock in Your Answer</h2>
+            <form method="POST" class="form">
+                <label for="guess">Enter your guess for the disease:</label>
+                <input type="text" id="guess" name="guess" required placeholder="e.g. Migraine">
+                <button type="submit" class="btn">Submit Answer</button>
+            </form>
+
+            <!-- Cancel button to go back to the chat -->
+            <form method="GET" action="{{ url_for('chat') }}" class="form">
+                <button type="submit" class="btn cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
