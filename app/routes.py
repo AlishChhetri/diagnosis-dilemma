@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from app.utils import get_gpt_response, diseases
+from app.util import get_gpt_response, diseases
 from app.game_state import game_state
 from fuzzywuzzy import fuzz  # type: ignore
 
@@ -35,8 +35,8 @@ def chat():
             game_state["patient_responses"].append(gpt_response)
             return redirect(url_for("main.chat"))
 
-        elif "lock_in_answer" in request.form:
-            return redirect(url_for("main.lock_in_answer"))
+        elif "answer" in request.form:
+            return redirect(url_for("main.answer"))
 
     doctor_patient_chat = zip(
         game_state["doctor_questions"], game_state["patient_responses"]
@@ -50,8 +50,8 @@ def chat():
     )
 
 
-@main.route("/lock_in_answer", methods=["GET", "POST"])
-def lock_in_answer():
+@main.route("/answer", methods=["GET", "POST"])
+def answer():
     if request.method == "POST":
         player_guess = request.form.get("guess").strip().lower()
         actual_disease = diseases[game_state["selected_disease"]].lower()
@@ -67,4 +67,4 @@ def lock_in_answer():
         game_state["game_over"] = True
         return redirect(url_for("main.chat"))
 
-    return render_template("lock_in_answer.html", diseases=diseases)
+    return render_template("answer.html", diseases=diseases)

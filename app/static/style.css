@@ -1,226 +1,79 @@
 /* General body styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7fafc;
+    background-color: #1a1a1a;
     margin: 0;
-    padding: 20px;
-    color: #333;
+    padding: 0;
+    color: #e0e0e0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
+/* Center container */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* Disease selection box */
+.disease-selection {
+    background-color: #222;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 50vw;
+    height: 50vh;
+}
+
 /* Header styling */
 h1.center {
-    text-align: center;
-    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-size: 4em;
     font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 40px;
+    color: #ffffff;
 }
 
-/* Improved Disease Selection Page */
-.disease-selection {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 450px;
-    width: 100%;
-    text-align: center;
-}
-
+/* Disease select dropdown */
 .disease-select {
-    padding: 12px;
-    font-size: 1.1rem;
+    padding: 1em;
+    font-size: 1.5em;
     border-radius: 8px;
-    border: 1px solid #cbd5e0;
+    border: 1px solid #555;
     width: 100%;
-    margin-bottom: 20px;
-    background-color: #f7fafc;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #333;
+    color: #e0e0e0;
     transition: border-color 0.2s;
+    text-align: center;
 }
 
 .disease-select:focus {
-    border-color: #3182ce;
+    border-color: #ffffff;
+    outline: none;
 }
 
+/* Button styling */
 .form .btn {
-    padding: 12px 20px;
-    font-size: 1.2rem;
-    background-color: #3182ce;
-    color: white;
-    border: none;
+    padding: 1em 2em;
+    font-size: 1.5em;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .form .btn:hover {
-    background-color: #2b6cb0;
-}
-
-/* Chatbox Layout */
-.chat-box {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    max-width: 900px;
-    width: 100%;
-    height: 450px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
-}
-
-/* Chat messages layout */
-.chat-message {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.chat-message.doctor {
-    justify-content: flex-end;
-}
-
-.chat-message.patient {
-    justify-content: flex-start;
-}
-
-.sprite {
-    width: 60px;
-    height: 60px;
-    margin-left: 15px;
-    border-radius: 50%;
-    border: 2px solid #cbd5e0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.doctor-sprite {
-    margin-left: 0;
-    margin-right: 15px;
-}
-
-/* Message bubbles */
-.message {
-    max-width: 65%;
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 1.1rem;
-}
-
-.doctor-message {
-    background-color: #edf2f7;
-    border: 1px solid #cbd5e0;
-    color: #2d3748;
-    text-align: right;
-}
-
-.patient-message {
-    background-color: #fef2f2;
-    border: 1px solid #feb2b2;
-    color: #9b2c2c;
-    text-align: left;
-}
-
-/* Forms and input fields */
-.form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 800px;
-}
-
-.form input {
-    padding: 12px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    border: 1px solid #cbd5e0;
-    width: 60%;
-    margin-right: 15px;
-}
-
-.form input:focus {
-    border-color: #3182ce;
-}
-
-/* Buttons */
-.form .btn {
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    background-color: #3182ce;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form .btn:hover {
-    background-color: #2b6cb0;
-}
-
-.cancel-btn {
-    background-color: #e53e3e;
-    margin-top: 15px;
-}
-
-.cancel-btn:hover {
-    background-color: #c53030;
-}
-
-/* Loading spinner */
-.loading {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.spinner {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Modal */
-.modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-
-.modal-content {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
+    color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }

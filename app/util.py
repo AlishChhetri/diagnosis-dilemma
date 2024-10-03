@@ -1,22 +1,22 @@
 import openai
 
 diseases = {
-    "Disease 1": "Common cold",
-    "Disease 2": "Migraine",
-    "Disease 3": "Type 2 Diabetes",
-    "Disease 4": "Snake bite",
-    "Disease 5": "Appendicitis",
-    "Disease 6": "Pneumonia",
-    "Disease 7": "Urinary Tract Infection (UTI)",
-    "Disease 8": "Mononucleosis",
-    "Disease 9": "Asthma",
-    "Disease 10": "Peptic Ulcer",
-    "Disease 11": "Hypertension",
-    "Disease 12": "Anemia",
-    "Disease 13": "Strep Throat",
-    "Disease 14": "Gallstones",
-    "Disease 15": "Irritable Bowel Syndrome (IBS)",
-    "Disease 16": "Covid-19",
+    "DISEASE 1": "Common cold",
+    "DISEASE 2": "Migraine",
+    "DISEASE 3": "Type 2 Diabetes",
+    "DISEASE 4": "Snake bite",
+    "DISEASE 5": "Appendicitis",
+    "DISEASE 6": "Pneumonia",
+    "DISEASE 7": "Urinary Tract Infection (UTI)",
+    "DISEASE 8": "Mononucleosis",
+    "DISEASE 9": "Asthma",
+    "DISEASE 10": "Peptic Ulcer",
+    "DISEASE 11": "Hypertension",
+    "DISEASE 12": "Anemia",
+    "DISEASE 13": "Strep Throat",
+    "DISEASE 14": "Gallstones",
+    "DISEASE 15": "Irritable Bowel Syndrome (IBS)",
+    "DISEASE 16": "Covid-19",
 }
 
 
