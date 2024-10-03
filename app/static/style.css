@@ -1,7 +1,7 @@
 /* General body styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a;
+    background-color: #131313;
     margin: 0;
     padding: 0;
     color: #e0e0e0;
@@ -22,14 +22,15 @@ body {
 
 /* Disease selection box */
 .disease-selection {
-    background-color: #222;
+    background-color: #1a1a1a;
     padding: 2em;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 10px 20px 10px #3b3b3b7a; /* Focused shadow at the bottom */
     text-align: center;
     width: 50vw;
     height: 50vh;
 }
+
 
 /* Header styling */
 h1.center {
@@ -41,23 +42,19 @@ h1.center {
 
 /* Disease select dropdown */
 .disease-select {
-    padding: 1em;
-    font-size: 1.5em;
+    padding: 3em;
+    font-size: 1em;
     border-radius: 8px;
     border: 1px solid #555;
     width: 100%;
     margin-top: 2em;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     background-color: #333;
     color: #e0e0e0;
-    transition: border-color 0.2s;
     text-align: center;
-}
-
-.disease-select:focus {
-    border-color: #ffffff;
     outline: none;
 }
+
 
 /* Button styling */
 .form .btn {
