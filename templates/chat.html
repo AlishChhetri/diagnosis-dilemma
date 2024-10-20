@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Patient Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="center">Doctor-Patient Chat</h1>
+
+        <div class="chat-box" id="chatBox">
+            {% for question, response in doctor_patient_chat %}
+            <!-- Doctor's message on the right -->
+            <div class="chat-message doctor">
+                <div class="message doctor-message">
+                    <strong>Doctor:</strong> {{ question }}
+                </div>
+                <img src="{{ url_for('static', filename='doctor_sprite.png') }}" alt="Doctor"
+                    class="sprite doctor-sprite">
+            </div>
+
+            <!-- Patient's message on the left -->
+            <div class="chat-message patient">
+                <img src="{{ url_for('static', filename='patient_sprite.png') }}" alt="Patient" class="sprite">
+                <div class="message patient-message">
+                    <strong>Patient:</strong> {{ response }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Question Forms -->
+        {% if not game_state['game_over'] %}
+        <form id="questionForm">
+            <label for="question">Ask the patient a question:</label>
+            <input type="text" id="question" name="question" required>
+            <button type="button" class="btn" onclick="submitQuestion()">Ask</button>
+        </form>
+
+        <form method="POST" action="{{ url_for('lock_in_answer') }}" class="form">
+            <button type="submit" name="lock_in_answer" class="btn">Lock in Answer</button>
+        </form>
+        {% else %}
+        {% if game_state['player_won'] %}
+        <p class="center win-message"><strong>Congratulations!</strong> You guessed the disease correctly!</p>
+        {% else %}
+        <p class="center lose-message"><strong>Sorry!</strong> You guessed incorrectly. The disease was: {{
+            diseases[game_state["selected_disease"]] }}.</p>
+        {% endif %}
+        {% endif %}
+    </div>
+
+    <script>
+        function scrollToBottom() {
+            const chatBox = document.getElementById("chatBox");
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        window.onload = scrollToBottom;
+
+        const chatBox = document.getElementById("chatBox");
+        const observer = new MutationObserver(scrollToBottom);
+        observer.observe(chatBox, { childList: true, subtree: true });
+
+        function submitQuestion() {
+            const questionInput = document.getElementById('question');
+            const questionValue = questionInput.value.trim();
+
+            if (!questionValue) {
+                alert('Please enter a question');
+                return;
+            }
+
+            const doctorMessage = document.createElement("div");
+            doctorMessage.classList.add("chat-message", "doctor");
+            doctorMessage.innerHTML = `
+                <div class="message doctor-message">
+                    <strong>Doctor:</strong> ${questionValue}
+                </div>
+                <img src="{{ url_for('static', filename='doctor_sprite.png') }}" alt="Doctor" class="sprite doctor-sprite">
+            `;
+            chatBox.appendChild(doctorMessage);
+
+            questionInput.value = '';
+
+            // "Patient is thinking..." message
+            const thinkingMessage = document.createElement("div");
+            thinkingMessage.classList.add("chat-message", "patient");
+            thinkingMessage.innerHTML = `
+                <img src="{{ url_for('static', filename='patient_sprite.png') }}" alt="Patient" class="sprite">
+                <div class="message patient-message">
+                    <strong>Patient:</strong> Patient is thinking...
+                </div>
+            `;
+            chatBox.appendChild(thinkingMessage);
+
+            scrollToBottom();
+
+            const formData = new FormData();
+            formData.append('question', questionValue);
+
+            fetch('/chat', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                window.location.reload();
+            }).catch(error => {
+                console.error('Error submitting the question:', error);
+            });
+        }
+    </script>
+</body>
+
+</html>

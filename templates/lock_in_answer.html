@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock in Your Guess</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="center">Guess the Disease</h1>
+
+        {% if game_state['game_over'] %}
+            {% if game_state['player_won'] %}
+                <p class="win-message"><strong>Congratulations!</strong> You guessed the disease correctly!</p>
+            {% else %}
+                <p class="lose-message"><strong>Sorry!</strong> You used all your guesses. The correct disease was: {{ diseases[game_state["selected_disease"]] }}.</p>
+            {% endif %}
+            <!-- "Play Again" button redirects to the index page, resetting the game -->
+            <a href="{{ url_for('index') }}" class="btn">Play Again</a>
+        {% else %}
+            <p>You have <strong>{{ game_state['remaining_guesses'] }}</strong> guesses remaining.</p>
+            <form method="POST" class="form">
+                <input type="text" id="guess" name="guess" required>
+                <button type="submit" class="btn">Submit Guess</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

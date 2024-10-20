@@ -1,27 +1,11 @@
+"""Utility functions for interacting with the OpenAI API."""
+
 import openai
 
-diseases = {
-    "DISEASE 1": "Common cold",
-    "DISEASE 2": "Migraine",
-    "DISEASE 3": "Type 2 Diabetes",
-    "DISEASE 4": "Snake bite",
-    "DISEASE 5": "Appendicitis",
-    "DISEASE 6": "Pneumonia",
-    "DISEASE 7": "Urinary Tract Infection (UTI)",
-    "DISEASE 8": "Mononucleosis",
-    "DISEASE 9": "Asthma",
-    "DISEASE 10": "Peptic Ulcer",
-    "DISEASE 11": "Hypertension",
-    "DISEASE 12": "Anemia",
-    "DISEASE 13": "Strep Throat",
-    "DISEASE 14": "Gallstones",
-    "DISEASE 15": "Irritable Bowel Syndrome (IBS)",
-    "DISEASE 16": "Covid-19",
-}
 
-
-# Function to generate GPT-based response
 def get_gpt_response(disease, doctor_question):
+    """Generate a patient-like response based on a disease and a doctor's question using GPT."""
+
     try:
         prompt = f"You have {disease}. Respond to the following question like a patient: {doctor_question}"
 
@@ -40,5 +24,6 @@ def get_gpt_response(disease, doctor_question):
         )
 
         return response.choices[0].message.content.strip()
-    except Exception as e:
+
+    except Exception as e:  # Handle API errors
         return f"Error with OpenAI API: {str(e)}"
