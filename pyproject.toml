@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "diagnosis dilemma"
+version = "0.1.0"
+description = "A game "
+authors = ["AlishChhetri <chhetri01@allegheny.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+Flask = "^3.0.3"
+python-dotenv = "^1.0.1"
+openai = "^1.52.1"
+fuzzywuzzy = "^0.18.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
