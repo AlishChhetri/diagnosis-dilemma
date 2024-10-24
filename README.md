@@ -101,7 +101,10 @@ Since the game relies on GPT-4 for generating patient responses, you need to set
 2. Create a `.env` file in the project directory and add the following line:
 
 ```bash
-OPENAI_API_KEY=your_openai_key_here
+KEY=your_openai_key_here
+
+ORG=your_openai_org_key_here
+
 ```
 
 This will ensure that the Flask app can communicate with the OpenAI API.
