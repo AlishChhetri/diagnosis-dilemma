@@ -57,7 +57,7 @@ To get the game running locally on your machine, follow these steps:
 First, ensure you have **Poetry** installed. If you don’t have it yet, you can install Poetry by running:
 
 ```bash
-curl -sSL https://install.python-poetry.org | python3 -
+pip install poetry 
 ```
 
 After installation, verify it by running:
