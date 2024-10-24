@@ -1,13 +1,21 @@
 """Utility functions for interacting with the OpenAI API."""
 
 import openai
+from config import diseases
 
 
-def get_gpt_response(disease, doctor_question):
+def get_gpt_response(disease_key, doctor_question):
     """Generate a patient-like response based on a disease and a doctor's question using GPT."""
 
     try:
-        prompt = f"You have {disease}. Respond to the following question like a patient: {doctor_question}"
+        # disease name and summary from the dictionary
+        disease_name, disease_summary = diseases[disease_key]
+
+        prompt = (
+            f"You have the following disease: {disease_name}. "
+            f"Use the following summary to assist your response: {disease_summary}. "
+            f"Respond to the following question like a patient: {doctor_question}"
+        )
 
         response = openai.chat.completions.create(
             model="gpt-4",
@@ -25,5 +33,5 @@ def get_gpt_response(disease, doctor_question):
 
         return response.choices[0].message.content.strip()
 
-    except Exception as e:  # Handle API errors
+    except Exception as e:
         return f"Error with OpenAI API: {str(e)}"

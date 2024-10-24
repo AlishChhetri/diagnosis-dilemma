@@ -40,12 +40,12 @@ def chat():
             flash("Please select a disease before asking questions.")
             return redirect(url_for("index"))
 
-        # Get disease name and generate patient response
-        disease_name = diseases.get(disease_key)
+        # Get disease name and summary, and generate patient response
+        disease_name, disease_summary = diseases.get(disease_key)
         game_state["doctor_questions"].append(doctor_question)
 
-        # Call GPT for a response
-        gpt_response = get_gpt_response(disease_name, doctor_question)
+        # Call GPT for a response, passing both the disease name and its summary
+        gpt_response = get_gpt_response(disease_key, doctor_question)
         game_state["patient_responses"].append(gpt_response)
 
         return redirect(url_for("chat"))
@@ -78,7 +78,9 @@ def lock_in_answer():
             return redirect(url_for("lock_in_answer"))
 
         player_guess = player_guess.strip().lower()
-        actual_disease = diseases[game_state["selected_disease"]].lower()
+        actual_disease = diseases[game_state["selected_disease"]][
+            0
+        ].lower()  # Updated to access disease name
 
         similarity = fuzz.partial_ratio(player_guess, actual_disease)
 
