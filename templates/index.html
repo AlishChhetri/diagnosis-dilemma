@@ -9,7 +9,7 @@
 <body class="index-page">
     <div class="container">
         <h1>Select a Disease</h1>
-        <form method="POST" class="form">
+        <form method="POST" class="form" id="diseaseForm">
             <select name="disease" id="disease" class="disease-select">
                 {% for disease in diseases %}
                     <option value="{{ disease }}">{{ disease }}</option>
@@ -17,6 +17,32 @@
             </select>
             <button type="submit" class="btn">Start Game</button>
         </form>
+        <button class="btn" id="randomDiseaseButton">Random Disease</button>
     </div>
+
+    <script>
+        document.getElementById('randomDiseaseButton').addEventListener('click', function () {
+            const options = Array.from(document.getElementById('disease').options);
+            const randomIndex = Math.floor(Math.random() * options.length);
+            const randomDisease = options[randomIndex].value;
+
+            // Create a FormData object to send the random disease directly to the server
+            const formData = new FormData();
+            formData.append('disease', randomDisease);
+
+            // Send a POST request to the server
+            fetch('/', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.redirected) {
+                    // Redirect to the chat page
+                    window.location.href = response.url;
+                }
+            }).catch(error => {
+                console.error('Error selecting random disease:', error);
+            });
+        });
+    </script>
 </body>
 </html>

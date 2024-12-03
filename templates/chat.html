@@ -112,6 +112,15 @@
                 console.error('Error submitting the question:', error);
             });
         }
+
+        // Add event listener for the Enter key
+        document.getElementById('question').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission if inside a form
+                submitQuestion();
+            }
+        });
+
     </script>
 </body>
 

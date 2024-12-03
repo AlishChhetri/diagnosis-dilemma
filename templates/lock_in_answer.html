@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lock in Your Guess</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function showHintPopup() {
+            const hintPopup = document.getElementById('hintPopup');
+            hintPopup.style.display = 'flex';
+        }
+
+        function closeHintPopup() {
+            const hintPopup = document.getElementById('hintPopup');
+            hintPopup.style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -14,17 +25,39 @@
             {% if game_state['player_won'] %}
                 <p class="win-message"><strong>Congratulations!</strong> You guessed the disease correctly!</p>
             {% else %}
-                <p class="lose-message"><strong>Sorry!</strong> You used all your guesses. The correct disease was: {{ diseases[game_state["selected_disease"]] }}.</p>
+                <p class="lose-message"><strong>Sorry!</strong> You used all your guesses. The correct disease was: {{ diseases[game_state["selected_disease"]][0] }}.</p>
             {% endif %}
-            <!-- "Play Again" button redirects to the index page, resetting the game -->
             <a href="{{ url_for('index') }}" class="btn">Play Again</a>
         {% else %}
             <p>You have <strong>{{ game_state['remaining_guesses'] }}</strong> guesses remaining.</p>
+
             <form method="POST" class="form">
-                <input type="text" id="guess" name="guess" required>
+                <input type="text" id="guess" name="guess" placeholder="Enter your guess" required>
                 <button type="submit" class="btn">Submit Guess</button>
             </form>
+
+            <!-- Hint and Back Buttons -->
+            <div class="button-row">
+                <button class="btn smaller-btn" onclick="showHintPopup()">Hint</button>
+                <a href="{{ url_for('chat') }}" class="btn smaller-btn">Back to Chat</a>
+            </div>            
         {% endif %}
+
+        <!-- Hint Popup -->
+        <div id="hintPopup" class="popup">
+            <div class="popup-content">
+                <h2>Possible Diseases</h2>
+                <div class="hint-grid">
+                    {% for key, value in diseases.items() %}
+                        <div class="hint-item">{{ value[0] }}</div>
+                        {% if loop.index % 10 == 0 %}
+                            </div><div class="hint-grid">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <button class="btn close-btn" onclick="closeHintPopup()">Close</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
